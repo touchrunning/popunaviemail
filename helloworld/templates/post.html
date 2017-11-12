@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+    <form action="/search-post" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="q"> <br/>
+
+   <br/>emaillist：<input id='myfile' type="file" name="myfile" />
+        <br/>emailinfo：<input id='emailinfo' type="file" name="emailinfo" />
+        <br/>emailmessage：<input id='emailmessage' type="file" name="emailmessage" />
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>{{ rlt }}</p>
+</body>
+</html>
