@@ -2,18 +2,18 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>菜鸟教程(runoob.com)</title>
+<title>POPUNAVI株式会社</title>
 </head>
 <body>
     <form action="/search-post" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="text" name="q"> <br/>
+        自動送信ツールDemo  <br/>
 
    <br/>emaillist：<input id='myfile' type="file" name="myfile" />
         <br/>emailinfo：<input id='emailinfo' type="file" name="emailinfo" />
         <br/>emailmessage：<input id='emailmessage' type="file" name="emailmessage" />
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="メール送信">
     </form>
 
     <p>{{ rlt }}</p>
