@@ -18,7 +18,6 @@ def search_post(request):
         myFile = request.FILES.get("myfile", None)  # 获取上传的文件，如果没有文件，则默认为None
         emailinfo = request.FILES.get("emailinfo", None)
         emailmessage = request.FILES.get("emailmessage", None)
-        rireki = request.FILES.get("rireki", None)
 
         emailLines = emailinfo.readlines()
         splitinfo = ":"
@@ -69,7 +68,7 @@ def search_post(request):
 
             # if i == 0:
             # 添加附件就是加上一个MIMEBase，从本地读取一个图片:
-            with open(tenpufilepath, 'rb') as f:
+            with open(tenpufilepath.encode('utf_8'), 'rb') as f:
                 # 设置附件的MIME和文件名，这里是png类型:
                 mime = MIMEBase('excel', tenpufilename.split(".")[1], filename=tenpufilename)
                 # 加上必要的头信息:
