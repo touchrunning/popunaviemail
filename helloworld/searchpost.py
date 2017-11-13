@@ -18,7 +18,7 @@ def search_post(request):
         myFile = request.FILES.get("myfile", None)  # 获取上传的文件，如果没有文件，则默认为None
         emailinfo = request.FILES.get("emailinfo", None)
         emailmessage = request.FILES.get("emailmessage", None)
-
+        rireki = request.FILES.get("rireki", None)
 
         emailLines = emailinfo.readlines()
         splitinfo = ":"
@@ -27,7 +27,9 @@ def search_post(request):
         password = format_email(emailLines[2],splitinfo)
         smtp_server = format_email(emailLines[3],splitinfo)
         emailtitle = format_email(emailLines[4],splitinfo)
-        tenpufilepath = format_email(emailLines[5], splitinfo)
+
+        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+        tenpufilepath = BASE_DIR+format_email(emailLines[5], splitinfo)
         tenpufilename = os.path.split(tenpufilepath)[1]
 
         # from_addr = 'liu@popunavi-soft.com'
@@ -94,6 +96,7 @@ def search_post(request):
 
     # if request.POST:
         ctx['rlt'] = companyname
+
     return render(request, "post.html", ctx)
 
 
